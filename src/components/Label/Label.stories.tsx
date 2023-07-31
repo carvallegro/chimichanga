@@ -1,6 +1,4 @@
-import React from "react";
 import { Label } from "./Label";
-import { Card } from "../Card";
 
 export default {
   title: "Label",

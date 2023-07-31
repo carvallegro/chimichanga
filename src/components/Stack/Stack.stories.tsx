@@ -16,3 +16,12 @@ export const Primary = () => (
     </Card>
   </Stack>
 );
+
+export const Secondary = () => (
+    <Stack direction='horizontal'>
+        <Card elevation="high" fullWidth>Card 1</Card>
+        <Card elevation="low" color="highlight" fullWidth>
+            Highlight card
+        </Card>
+    </Stack>
+);
