@@ -9,4 +9,4 @@ export default {
 
 export const Primary = () => <Card>Card</Card>;
 
-export const Secondary = () => <Card elevation="high">Second Card</Card>;
+export const Secondary = () => <Card elevation="high" variant="highlight" fullWidth>Second Card</Card>;

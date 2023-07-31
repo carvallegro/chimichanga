@@ -1,41 +1,23 @@
-import React from "react";
+import React, {HTMLAttributes, PropsWithChildren} from "react";
 
-import { Box, type BoxProps } from "../Box";
+import {card, CardVariants} from "./Card.css";
 
-const validElements = [
-  "div",
-  "article",
-  "aside",
-  "details",
-  "main",
-  "section",
-] as const;
-
-interface CardProps {
-  children: BoxProps["children"];
-  as?: (typeof validElements)[number];
-  color?: "normal" | "highlight";
-  elevation?: BoxProps["boxShadow"];
-  fullWidth?: boolean;
-  className?: BoxProps["className"];
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+    variant?: CardVariants["color"];
+    elevation?: CardVariants["elevation"];
+    fullWidth?: boolean;
 }
 
 export function Card({
-  as = "div",
-  color = "normal",
-  elevation = "medium",
-  fullWidth,
-  ...props
-}: CardProps) {
-  return (
-    <Box
-      as={as}
-      borderRadius="4x"
-      padding="4x"
-      width={fullWidth ? "full" : undefined}
-      boxShadow={elevation}
-      background={color === "normal" ? "primary" : "highlight"}
-      {...props}
-    />
-  );
+                         variant = "primary",
+                         elevation = "medium",
+                         fullWidth,
+                         ...props
+                     }: PropsWithChildren<CardProps>) {
+    return (<div className={card({
+            color: variant,
+            elevation,
+            fullWidth
+        })} {...props} />
+    )
 }
