@@ -1,4 +1,4 @@
-import React, {HTMLAttributes, PropsWithChildren} from "react";
+import {HTMLAttributes, PropsWithChildren} from "react";
 
 import {card, CardVariants} from "./Card.css";
 

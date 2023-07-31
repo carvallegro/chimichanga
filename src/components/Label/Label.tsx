@@ -1,21 +1,15 @@
-import React from "react";
-import { Box, type BoxProps } from "../Box";
+import {HTMLAttributes, PropsWithChildren} from "react";
+import {label} from "./Label.css";
 
-interface LabelProps {
-  children: BoxProps["children"];
-  className?: BoxProps["className"];
+interface LabelProps extends HTMLAttributes<HTMLLabelElement> {
+  rounded?: boolean
 }
 
-export const Label = ({ children, ...props }: LabelProps) => {
+export const Label = ({ rounded, ...props }: PropsWithChildren<LabelProps>) => {
   return (
-    <Box
-      borderRadius="round"
-      paddingY="1x"
-      paddingX="1x"
-      fontSize="12px"
+    <label
+      className={label({rounded})}
       {...props}
-    >
-      <Box as="span">{children}</Box>
-    </Box>
+    />
   );
 };
